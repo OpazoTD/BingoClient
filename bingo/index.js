@@ -68,7 +68,7 @@ function generarCarton() {
 
 //Renderiza el cartón en el DOM
 function renderizarCarton() {
-    const contenedorCarton = document.getElementById('bingo-card');
+    const contenedorCarton = document.querySelector('#bingo-card');
     
     // Limpiar contenedor
     contenedorCarton.innerHTML = '';
@@ -197,8 +197,8 @@ function inicializar() {
     }
     
     // Configurar eventos de botones
-    document.getElementById('nuevo-carton').addEventListener('click', nuevoCarton);
-    document.getElementById('verificar-bingo').addEventListener('click', manejarVerificarBingo);
+    document.querySelector('#nuevo-carton').addEventListener('click', nuevoCarton);
+    document.querySelector('#verificar-bingo').addEventListener('click', manejarVerificarBingo);
 }
 
 // Inicializar cuando se carga la página
