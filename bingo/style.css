@@ -1,0 +1,277 @@
+* {margin: 0;padding: 0;box-sizing: border-box;}
+
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-card: #111111;
+    --bg-hover: #1f1f1f;
+    
+    --accent-primary: #8b5cf6;
+    --accent-secondary: #a855f7;
+    --accent-hover: #9333ea;
+    --accent-light: #c4b5fd;
+
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    
+    --success: #10b981;
+    --warning: #f59e0b;
+    
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(139, 92, 246, 0.3);
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/*
+ 1 rem = 16px 
+ z-index= controla que no se superpongan los elementos
+ gap= deja un espacio entre filas y columnas
+
+*/
+body {
+    font-family: var(--font-body);
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+        linear-gradient(135deg, var(--bg-primary) 0%, #0f0f0f 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    position: relative;
+}
+.main-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+}
+.main-header h1 {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+.subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+}
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+}
+.bingo-game {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.bingo-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+.letter {
+    font-family: var(--font-mono);
+    background: var(--bg-secondary);
+    color: var(--accent-light);
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    letter-spacing: 0.1em;
+}
+.bingo-card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+}
+
+/* Estilos para cada casilla del cartón */
+.casilla {
+    font-family: var(--font-mono);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    padding: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.casilla:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent-primary);
+    color: var(--accent-light);
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+.casilla.marcado {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-primary);
+    border-color: var(--accent-primary);
+    transform: scale(0.98);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.casilla.marcado:hover {
+    transform: scale(1);
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+}
+
+/* Casilla especial "GRATIS" */
+.casilla.gratis {
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, var(--warning), #f97316);
+    color: var(--bg-primary);
+    border-color: var(--warning);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.game-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    font-family: var(--font-body);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.875rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-hover));
+    border-color: var(--accent-secondary);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+/* Botón de éxito (Verificar Bingo) */
+.btn-success {
+    background: linear-gradient(135deg, var(--success), #059669);
+    border-color: var(--success);
+    color: var(--text-primary);
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    border-color: #059669;
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+
+.instructions {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
+}
+
+.instructions h2 {
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.instructions ol {
+    color: var(--text-primary);
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+.instructions li {
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+}
+.main-footer {
+    margin-top: auto;
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem 0;
+    font-size: 0.875rem;
+    position: relative;
+    z-index: 2;
+}
+.main-footer p {
+    margin-bottom: 0.25rem;
+    font-weight: 400;
+}
+@media (max-width: 640px) {
+    body {padding: 1rem;}
+
+    .main-header h1 {font-size: 2.5rem;} 
+    .subtitle {font-size: 1rem;}
+    .bingo-game {padding: 1.5rem;}
+    .casilla {
+        padding: 1rem;
+        font-size: 1.25rem;
+        min-height: 60px;}
+    
+    .letter {
+        padding: 0.75rem;
+        font-size: 1.25rem;
+    }
+    .game-controls {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .btn {
+        padding: 1rem 1.5rem;
+    }
+    .instructions {
+        padding: 1.25rem;
+    }
+}

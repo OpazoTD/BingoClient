@@ -1,0 +1,113 @@
+Requisitos Funcionales
+La aplicación debe cumplir con las siguientes
+ funcionalidades:
+
+Generación del Cartón:
+
+Al cargar la página, se debe generar y mostrar 
+automáticamente un cartón de Bingo de 5x5.
+Los números deben seguir las reglas oficiales
+ del Bingo de 75 bolas:
+B: 5 números aleatorios entre 1 y 15.
+I: 5 números aleatorios entre 16 y 30.
+N: 4 números aleatorios entre 31 y 45 
+(el espacio central es GRATIS).
+G: 5 números aleatorios entre 46 y 60.
+O: 5 números aleatorios entre 61 y 75.
+Importante: Los números en una misma 
+columna no deben repetirse.
+Interactividad del Cartón:
+
+El usuario debe poder hacer clic en 
+cualquier número del cartón para "marcarlo"
+ o "tacharlo".
+Visualmente, un número marcado debe
+ diferenciarse de uno no marcado 
+ (por ejemplo, cambiando su color 
+ de fondo, tachándolo con CSS, etc.).
+Si el usuario vuelve a hacer clic 
+en un número ya marcado, este debe
+ volver a su estado original (desmarcarse).
+Botón de "Nuevo Cartón":
+
+Debe existir un botón que, al ser 
+presionado, limpie el cartón actual 
+y genere uno nuevo completamente diferente.
+Requisitos Técnicos
+El proyecto debe estar contenido 
+en una carpeta con tres archivos:
+ index.html, styles.css y script.js.
+El código JavaScript debe estar bien
+ organizado y comentado, explicando 
+ la lógica de las funciones principales
+  (ej: generarNumerosCarton(), 
+  renderizarCarton(), marcarNumero()).
+Se debe usar document.querySelector, 
+createElement, appendChild y classList
+ para manipular el DOM dinámicamente.
+Se debe usar addEventListener para 
+gestionar los clics en los números y 
+en el botón de "Nuevo Cartón".
+
+
+Guía y Pasos Sugeridos
+Paso 1: Estructura HTML.
+
+Crea el index.html con la estructura
+ básica: un header para el título 
+ "Mi Cartón de Bingo", un div que
+  funcionará como contenedor del cartón 
+  (ej: <div id="bingo-card"></div>),
+   y un button para generar un nuevo cartón.
+Paso 2: Estilos CSS.
+
+Usa CSS Grid o Flexbox para maquetar el cartón 
+en una grilla de 5x5.
+Define un estilo para las casillas de los números.
+Crea una clase CSS específica para
+ el estado "marcado" (ej: .marcado) 
+ que cambie la apariencia de la casilla.
+  No olvides el estilo para la casilla "GRATIS".
+Paso 3: Lógica en JavaScript.
+
+Estado: Define las variables que necesitarás.
+ Podrías usar un objeto o un array de arrays
+  para guardar los números del cartón.
+
+Función generarCarton(): Escribe la lógica para
+ generar los números aleatorios únicos para cada
+  columna, respetando los rangos.
+
+Función renderizarCarton(): Esta función deberá:
+Limpiar el contenedor del cartón (bingo-card).
+Recorrer tu estructura de datos con los números.
+Por cada número, crear un div, asignarle 
+el número, añadirle un addEventListener para el
+ clic, y agregarlo al contenedor.
+
+Función marcarNumero(event): Esta será la función
+ que se ejecute al hacer clic. Usará event.target 
+ para saber a qué casilla se le hizo clic y usará
+  classList.toggle('marcado') para cambiar su estado.
+
+Inicialización: Llama a generarCarton() y 
+renderizarCarton() cuando la página cargue.
+ Asigna el evento al botón "Nuevo Cartón" 
+ para que vuelva a ejecutar estas funciones.
+
+
+
+Desafío Opcional (Puntos Extra)
+
+¡Grité BINGO!: Agrega un botón "Verificar
+Bingo". Al presionarlo, tu código deberá 
+analizar las casillas marcadas y determinar
+ si el jugador completó una línea (horizontal,
+  vertical o diagonal). Muestra un mensaje de 
+  alerta (alert()) si el jugador ganó.
+
+Persistencia de Datos: Utiliza localStorage 
+para guardar el estado del cartón actual (sus 
+números y cuáles están marcados). Si el usuario
+ recarga la página, su partida debería continuar
+  donde la dejó.

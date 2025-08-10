@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Título de la página -->
+    <title>Cartón de Bingo 5x5</title>
+</head>
+<body>
+    <!-- Encabezado principal-->
+    <header class="main-header">
+        <h1>BINGO ITS</h1>
+        <p class="subtitle">CARTÓN DE BINGO</p>
+    </header>
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Sección del juego -->
+        <section class="bingo-game" aria-label="Área de juego de Bingo">
+            <!-- Encabezado del juego-->
+            <header class="bingo-header" role="presentation">
+                <div class="letter" aria-label="Columna B">B</div>
+                <div class="letter" aria-label="Columna I">I</div>
+                <div class="letter" aria-label="Columna N">N</div>
+                <div class="letter" aria-label="Columna G">G</div>
+                <div class="letter" aria-label="Columna O">O</div>
+            </header>
+            
+            <!-- Cartón de Bingo -->
+            <div id="bingo-card" class="bingo-card" role="grid" aria-label="Cartón de Bingo 5x5"> 
+            </div>
+            
+            <!-- Controles del juego -->
+            <nav class="game-controls" aria-label="Controles del juego">
+                <button id="nuevo-carton" class="btn btn-primary" type="button">
+                    NUEVO CARTÓN
+                </button>
+                <button id="verificar-bingo" class="btn btn-success" type="button">
+                    VERIFICAR BINGO
+                </button>
+            </nav>
+        </section>
+        
+        <!-- Sección de instrucciones -->
+        <aside class="instructions" aria-label="Instrucciones del juego">
+            <h2>¿CÓMO JUGAR?</h2>
+            <ol>
+                <li>Haz clic en los números para marcarlos.</li>
+                <li>Completa una línea horizontal, vertical o diagonal.</li>
+                <li>Presiona "VERIFICAR CARTÓN" para verificar si ganaste.</li>
+                <li>Usa "NUEVO CARTÓN" para generar uno diferente.</li>
+            </ol>
+        </aside>
+    </main>
+    
+    <!-- Pie de página -->
+    <footer class="main-footer">
+        <p> 2025 JUEGO DE BINGO. ITS CIPOLLETTI.</p>
+    </footer>
+    <!-- Script principal-->
+    <script src="index.js"></script>
+</body>
+</html>
